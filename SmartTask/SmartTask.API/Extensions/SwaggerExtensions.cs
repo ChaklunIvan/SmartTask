@@ -1,4 +1,6 @@
-﻿namespace SmartTask.API.Extensions
+﻿using Microsoft.OpenApi.Models;
+
+namespace SmartTask.API.Extensions
 {
     public static class SwaggerExtensions
     {
