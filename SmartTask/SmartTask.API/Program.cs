@@ -6,7 +6,8 @@ builder.Services
        .AddControllers()
        .Services
        .AddSwaggerGenerator()
-       .ConfigureSqlContext(builder.Configuration);
+       .ConfigureSqlContext(builder.Configuration)
+       .AddServices();
 
 var app = builder.Build();
 

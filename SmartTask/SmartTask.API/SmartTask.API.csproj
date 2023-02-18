@@ -18,6 +18,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\SmartTask.DataBase\SmartTask.DataBase.csproj" />
+	  <ProjectReference Include="..\SmartTask.Services\SmartTask.Services.csproj" />
 	</ItemGroup>
 
 </Project>
