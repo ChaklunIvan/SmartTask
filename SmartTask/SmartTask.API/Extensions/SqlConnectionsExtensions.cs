@@ -8,7 +8,7 @@ namespace SmartTask.API.Extensions
         public static IServiceCollection ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<SmartTaskDbContext>(opts =>
-            opts.UseSqlServer(configuration.GetConnectionString("MSSQLConnection")));
+            opts.UseLazyLoadingProxies().UseSqlServer(configuration.GetConnectionString("MSSQLConnection")));
             return services;
         }
     }

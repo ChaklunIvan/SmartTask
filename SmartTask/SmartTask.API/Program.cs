@@ -7,7 +7,8 @@ builder.Services
        .Services
        .AddSwaggerGenerator()
        .ConfigureSqlContext(builder.Configuration)
-       .AddServices();
+       .AddServices()
+       .AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 
