@@ -28,7 +28,7 @@ namespace SmartTask.Services
             return contractsResponse;
         }
 
-        public async Task AddContractAsync(PlacementContractRequest contractRequest, CancellationToken cancellationToken)
+        public async Task<EntityState> AddContractAsync(PlacementContractRequest contractRequest, CancellationToken cancellationToken)
         {
             var equipment = await _context.Equipments.FirstOrDefaultAsync(e => e.Name == contractRequest.EquipmentType, cancellationToken);
             var premises = await _context.Premises.FirstOrDefaultAsync(p => p.Name == contractRequest.PremisesName, cancellationToken);
@@ -47,8 +47,10 @@ namespace SmartTask.Services
                 EquipmentCount = contractRequest.EquipmentCount
             };
 
-            await _context.Contracts.AddAsync(contract, cancellationToken);
+            var changeTracking = await _context.Contracts.AddAsync(contract, cancellationToken);
             await _context.SaveChangesAsync(cancellationToken);
+
+            return changeTracking.State;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SmartTask.Models.Entities;
 using SmartTask.Models.Requests;
 using SmartTask.Models.Responses;
@@ -27,11 +28,11 @@ namespace SmartTask.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddContractAsync([FromBody] PlacementContractRequest contract, CancellationToken cancellationToken)
+        public async Task<ActionResult<EntityState>> AddContractAsync([FromBody] PlacementContractRequest contract, CancellationToken cancellationToken)
         {
-            await _contractService.AddContractAsync(contract, cancellationToken);
+            var state = await _contractService.AddContractAsync(contract, cancellationToken);
 
-            return Ok();
+            return Ok(state);
         }
     }
 }
