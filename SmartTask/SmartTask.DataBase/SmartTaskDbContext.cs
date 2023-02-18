@@ -20,6 +20,8 @@ namespace SmartTask.DataBase
             builder.ApplyConfiguration(new ProductionPremisesConfiguration());
             builder.ApplyConfiguration(new EquipmentTypeConfiguration());
             builder.ApplyConfiguration(new PlacementContractConfiguration());
+
+            builder.Seed();
         }
     }
 }

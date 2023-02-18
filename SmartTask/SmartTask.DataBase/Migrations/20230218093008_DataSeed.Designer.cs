@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartTask.DataBase;
 
@@ -10,9 +11,11 @@ using SmartTask.DataBase;
 namespace SmartTask.DataBase.Migrations
 {
     [DbContext(typeof(SmartTaskDbContext))]
-    partial class SmartTaskDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230218093008_DataSeed")]
+    partial class DataSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
